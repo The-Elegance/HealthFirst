@@ -5,6 +5,7 @@
         /// <summary>
         /// Info about where object must be in the calendar.
         /// </summary>
-        CalendarObjectRepeatInfo Info { get; set; }
+        // TODO: (!!!) Remove setter here. 
+        CalendarObjectRepeatInfo CalendarInfo { get; }
     }
 }
