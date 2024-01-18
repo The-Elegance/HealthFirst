@@ -1,11 +1,6 @@
-﻿using HealthFirst.Core.Menu.DishRecipe.Ingredients.Gram;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using HealthFirst.Food.DishRecipe.Ingredients.Gram;
 
-namespace HealthFirst.Core.Menu.DishRecipe.Ingredients.CountOfProducts
+namespace HealthFirst.Food.DishRecipe.Ingredients.CountOfProducts
 {
     public readonly struct CountProduct : ICountProducts
     {

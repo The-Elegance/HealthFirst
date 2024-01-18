@@ -1,13 +1,7 @@
-﻿using HealthFirst.Core.Menu.DishRecipe.Ingredients.CountOfProducts;
-using HealthFirst.Core.Menu.DishRecipe.Ingredients.Gram;
-using HealthFirst.Core.Menu.DishRecipe.Ingredients.Products;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using HealthFirst.Food.DishRecipe.Ingredients.CountOfProducts;
+using HealthFirst.Food.Products;
 
-namespace HealthFirst.Core.Menu.DishRecipe.Ingredients
+namespace HealthFirst.Food.DishRecipe.Ingredients
 {
     public class Ingredient : IIngredient
     {
