@@ -1,12 +1,7 @@
-﻿using HealthFirst.Core.Menu.DishRecipe.CookingSteps;
-using HealthFirst.Core.Menu.DishRecipe.Ingredients;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using HealthFirst.Food.DishRecipe.CookingSteps;
+using HealthFirst.Food.DishRecipe.Ingredients;
 
-namespace HealthFirst.Core.Menu.DishRecipe
+namespace HealthFirst.Food.DishRecipe
 {
     public class DishRecipe : IDishRecipe, IMenuItem
     {
@@ -39,8 +34,8 @@ namespace HealthFirst.Core.Menu.DishRecipe
         /// </summary>
         public Step[] CoockingStep { get; }
 
-        public DishRecipe(string title, string desc, TimeSpan coockinTime, uint count, DifficultyPreparation level, Ingredient[] ingredients, Step[] step) 
-        { 
+        public DishRecipe(string title, string desc, TimeSpan coockinTime, uint count, DifficultyPreparation level, Ingredient[] ingredients, Step[] step)
+        {
             Title = title;
             Description = desc;
             CookingTime = coockinTime;

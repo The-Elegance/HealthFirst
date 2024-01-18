@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace HealthFirst.Core.Menu.DishRecipe.CookingSteps
+﻿namespace HealthFirst.Food.DishRecipe.CookingSteps
 {
     public interface IStep
     {
