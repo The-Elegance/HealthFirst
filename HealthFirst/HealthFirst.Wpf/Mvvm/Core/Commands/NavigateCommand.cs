@@ -18,4 +18,21 @@ namespace HealthFirst.WPF.Mvvm.Core.Commands
             _navigationStore.CurrentViewModel = _createViewModel();
         }
     }
+
+    public sealed class NavigateCommand : CommandBase 
+    {
+        private readonly Action<ViewModelBase> _changeCurrentViewModel;
+        private readonly Func<ViewModelBase> _createViewModel;
+
+        public NavigateCommand(Action<ViewModelBase> changeCurrentViewModel, Func<ViewModelBase> createViewModel)
+        {
+            _changeCurrentViewModel = changeCurrentViewModel;
+            _createViewModel = createViewModel;
+        }
+
+        public override void Execute(object parameter)
+        {
+            _changeCurrentViewModel?.Invoke(_createViewModel());
+        }
+    }
 }

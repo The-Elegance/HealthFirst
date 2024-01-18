@@ -1,0 +1,38 @@
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:viewLayouts="clr-namespace:HealthFirst.WPF.Mvvm.Views.Layouts"
+    xmlns:viewSidebar="clr-namespace:HealthFirst.WPF.Mvvm.Views.Sidebar"
+    xmlns:viewTraining="clr-namespace:HealthFirst.WPF.Mvvm.Views.Pages.Trainings"
+    xmlns:vmLayouts="clr-namespace:HealthFirst.WPF.Mvvm.ViewModels.Layouts"
+    xmlns:vmSidebar="clr-namespace:HealthFirst.WPF.Mvvm.ViewModels.Sidebar"
+    xmlns:vmTraining="clr-namespace:HealthFirst.WPF.Mvvm.ViewModels.MainMenu.Trainings">
+
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="Controls/DefaultMainMenuTabItem.xaml" />
+    </ResourceDictionary.MergedDictionaries>
+
+    <DataTemplate DataType="{x:Type vmLayouts:MainMenuLayoutViewModel}">
+        <viewLayouts:MainMenuLayoutView />
+    </DataTemplate>
+
+    <DataTemplate DataType="{x:Type vmLayouts:TrainingMenuLayoutViewModel}">
+        <viewLayouts:TrainingMenuLayoutView />
+    </DataTemplate>
+
+    <DataTemplate DataType="{x:Type vmSidebar:SidebarViewModel}">
+        <viewSidebar:SidebarView />
+    </DataTemplate>
+
+    <DataTemplate DataType="{x:Type vmTraining:TrainingsViewModel}">
+        <viewTraining:TrainingsView />
+    </DataTemplate>
+
+    <DataTemplate DataType="{x:Type vmTraining:TrainingCourseViewModel}">
+        <viewTraining:TrainingCourseView />
+    </DataTemplate>
+
+    <DataTemplate DataType="{x:Type vmTraining:ExercisePageViewModel}">
+        <viewTraining:ExerciesPageView />
+    </DataTemplate>
+</ResourceDictionary>
