@@ -1,0 +1,105 @@
+﻿<UserControl
+    x:Class="HealthFirst.WPF.Mvvm.Views.Pages.Trainings.TrainingCourseView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:HealthFirst.WPF.Mvvm.Views.Pages.Trainings"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:vm="clr-namespace:HealthFirst.WPF.Mvvm.ViewModels.MainMenu.Trainings"
+    d:DataContext="{d:DesignInstance vm:TrainingCourseView}"
+    d:DesignHeight="450"
+    d:DesignWidth="800"
+    mc:Ignorable="d">
+    <Grid Margin="88,0,0,0" Background="#F0F1F2">
+        <Border Padding="32">
+            <Grid ShowGridLines="True">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+
+                <Button
+                    Width="128"
+                    Height="32"
+                    HorizontalAlignment="Left"
+                    Command="{Binding BackCommand}"
+                    Content="Back" />
+
+                <TabControl Grid.Row="1" Margin="0,8,0,0">
+                    <TabItem Header="Week 1">
+                        <TabControl>
+                            <TabItem Header="Day 1">
+                                <StackPanel>
+                                    <Border
+                                        Margin="4"
+                                        Padding="16"
+                                        Background="Red">
+                                        <TextBlock Text="ГРУДЬ" />
+                                    </Border>
+                                    <Border Margin="4" Padding="16">
+                                        <TextBlock Text="ПЛЕЧИ" />
+                                    </Border>
+                                    <Button Command="{Binding OpenExerciesPage}">
+                                        <Border Margin="4" Padding="16">
+                                            <TextBlock Text="ТРИЦЕПС" />
+                                        </Border>
+                                    </Button>
+                                </StackPanel>
+                            </TabItem>
+                            <TabItem Header="Day 2" />
+                            <TabItem Header="Day 3" />
+                            <TabItem Header="Day 4" />
+                            <TabItem Header="Day 5" />
+                            <TabItem Header="Day 6" />
+                            <TabItem Header="Day 7" />
+                        </TabControl>
+                    </TabItem>
+                    <TabItem Header="Week 2">
+                        <TabControl>
+                            <TabItem Header="Day 1" />
+                            <TabItem Header="Day 2" />
+                            <TabItem Header="Day 3" />
+                            <TabItem Header="Day 4" />
+                            <TabItem Header="Day 5" />
+                            <TabItem Header="Day 6" />
+                            <TabItem Header="Day 7" />
+                        </TabControl>
+                    </TabItem>
+                    <TabItem Header="Week 3">
+                        <TabControl>
+                            <TabItem Header="Day 1" />
+                            <TabItem Header="Day 2" />
+                            <TabItem Header="Day 3" />
+                            <TabItem Header="Day 4" />
+                            <TabItem Header="Day 5" />
+                            <TabItem Header="Day 6" />
+                            <TabItem Header="Day 7" />
+                        </TabControl>
+                    </TabItem>
+                    <TabItem Header="Week 4">
+                        <TabControl>
+                            <TabItem Header="Day 1" />
+                            <TabItem Header="Day 2" />
+                            <TabItem Header="Day 3" />
+                            <TabItem Header="Day 4" />
+                            <TabItem Header="Day 5" />
+                            <TabItem Header="Day 6" />
+                            <TabItem Header="Day 7" />
+                        </TabControl>
+                    </TabItem>
+                    <TabItem Header="Week 5">
+                        <TabControl>
+                            <TabItem Header="Day 1" />
+                            <TabItem Header="Day 2" />
+                            <TabItem Header="Day 3" />
+                            <TabItem Header="Day 4" />
+                            <TabItem Header="Day 5" />
+                            <TabItem Header="Day 6" />
+                            <TabItem Header="Day 7" />
+                        </TabControl>
+                    </TabItem>
+                </TabControl>
+            </Grid>
+        </Border>
+    </Grid>
+</UserControl>

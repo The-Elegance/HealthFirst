@@ -2,6 +2,7 @@
 using HealthFirst.WPF.Views.Windows;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using System.Windows;
 
 namespace HealthFirst.WPF
 {
@@ -32,15 +33,31 @@ namespace HealthFirst.WPF
                 .AddViews();
         }
 
-        private static void OnStartup(object sender, System.Windows.StartupEventArgs e)
+        private static void OnStartup(object sender, StartupEventArgs e)
         {
             _host.Start();
+
+            _app.Resources.MergedDictionaries.Add(new ResourceDictionary()
+            {
+                Source = new Uri("pack://application:,,,/Assets/LanguageRegistry.xaml")
+            });
+
+            // DataTemplates (VM <-> View)
+            _app.Resources.MergedDictionaries.Add(new ResourceDictionary()
+            {
+                Source = new Uri("pack://application:,,,/DataTemplates.xaml")
+            });
+
+            _app.Resources.MergedDictionaries.Add(new ResourceDictionary()
+            {
+                Source = new Uri("pack://application:,,,/Resources/Themes/DarkTheme.xaml")
+            });
 
             _app.MainWindow = _host.Services.GetRequiredService<MainWindow>();
             _app.MainWindow.Show();
         }
 
-        private static async void OnExit(object sender, System.Windows.ExitEventArgs e)
+        private static async void OnExit(object sender, ExitEventArgs e)
         {
             await _host.StopAsync();
             _host.Dispose();

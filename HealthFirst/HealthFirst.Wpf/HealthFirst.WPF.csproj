@@ -10,11 +10,16 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Mvvm\Views\Pages\" />
+    <Folder Include="Mvvm\Views\Templates\" />
   </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Microsoft.Extensions.Hosting" Version="8.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\HealthFirst.Training\HealthFirst.Training.csproj" />
+    <ProjectReference Include="..\HealthFirst\HealthFirst.Core.csproj" />
   </ItemGroup>
 
 </Project>
