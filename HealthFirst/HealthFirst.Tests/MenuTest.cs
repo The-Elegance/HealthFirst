@@ -1,15 +1,9 @@
-﻿using HealthFirst.Core.Menu.DishRecipe;
-using HealthFirst.Core.Menu.DishRecipe.CookingSteps;
-using HealthFirst.Core.Menu.DishRecipe.Ingredients;
-using HealthFirst.Core.Menu.DishRecipe.Ingredients.CountOfProducts;
-using HealthFirst.Core.Menu.DishRecipe.Ingredients.Products;
+﻿using HealthFirst.Food.DishRecipe;
+using HealthFirst.Food.DishRecipe.CookingSteps;
+using HealthFirst.Food.DishRecipe.Ingredients;
+using HealthFirst.Food.DishRecipe.Ingredients.CountOfProducts;
+using HealthFirst.Food.Products;
 using NUnit.Framework;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Reflection.Emit;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace HealthFirst.Tests
 {
