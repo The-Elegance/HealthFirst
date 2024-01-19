@@ -6,7 +6,7 @@ using HealthFirst.WPF.Mvvm.ViewModels.MainMenu.Trainings;
 
 namespace HealthFirst.WPF.Mvvm.ViewModels.Layouts
 {
-    public sealed class TrainingMenuLayoutViewModel : ViewModelBase
+    public sealed class TrainingMenuLayoutViewModel : ViewModelBase, ILayoutViewModel
     {
         private INavigationStore _navigationStore;
 

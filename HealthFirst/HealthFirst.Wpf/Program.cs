@@ -42,6 +42,11 @@ namespace HealthFirst.WPF
                 Source = new Uri("pack://application:,,,/Assets/LanguageRegistry.xaml")
             });
 
+            _app.Resources.MergedDictionaries.Add(new ResourceDictionary()
+            {
+                Source = new Uri("pack://application:,,,/Controls/ControlsRegistry.xaml")
+            });
+
             // DataTemplates (VM <-> View)
             _app.Resources.MergedDictionaries.Add(new ResourceDictionary()
             {

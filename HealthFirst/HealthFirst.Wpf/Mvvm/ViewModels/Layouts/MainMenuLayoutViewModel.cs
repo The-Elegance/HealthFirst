@@ -5,7 +5,7 @@ using System.Collections.ObjectModel;
 
 namespace HealthFirst.WPF.Mvvm.ViewModels.Layouts
 {
-    public sealed class MainMenuLayoutViewModel : ViewModelBase
+    public sealed class MainMenuLayoutViewModel : ViewModelBase, IMenuLayout
     {
         private readonly ViewModelBase _homeViewModel;
         private readonly ViewModelBase _trainingViewModel;
