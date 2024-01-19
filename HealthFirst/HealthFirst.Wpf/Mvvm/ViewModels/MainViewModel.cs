@@ -1,4 +1,4 @@
-﻿using HealthFirst.Core.Training.Builders;
+using HealthFirst.Core.Training.Builders;
 using HealthFirst.Core.Training.Interfaces;
 using HealthFirst.WPF.Mvvm.Core;
 using HealthFirst.WPF.Mvvm.Core.Modal;
@@ -19,8 +19,6 @@ namespace HealthFirst.WPF.Mvvm.ViewModels
 
         public IModalViewModel CurrentModalViewModel { get => _modalNavigationStore.CurrentViewModel; } 
         public bool IsModalOpen { get => _modalNavigationStore.CurrentViewModel != null; }
-
-
 
         public MainViewModel(INavigationStore navigationStore) 
         {
