@@ -8,6 +8,8 @@ namespace HealthFirst.App.Services
 {
     public class TodoService
     {
+        const string DirPath = "N:\\VirtualStand\\Data\\todolist.json";
+
         public void SaveTodoModel(TodoListModel todoItemModels) 
         {
             var todoItems = new List<ITodoItem>();
@@ -25,13 +27,13 @@ namespace HealthFirst.App.Services
                 todoItems.Add(todoItem);
             }
 
-            var todolistService = new TodoListService();
+            var todolistService = new TodoListService(DirPath);
             todolistService.Write(todoItems);
         }
 
         public TodoListModel GetTodoListModel()
         {
-            var todolistService = new TodoListService();
+            var todolistService = new TodoListService(DirPath);
             var todoItems = todolistService.Read();
 
             if (todoItems == null)

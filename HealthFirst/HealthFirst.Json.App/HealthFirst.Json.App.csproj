@@ -7,6 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\HealthFirst.Food\HealthFirst.Food.csproj" />
     <ProjectReference Include="..\HealthFirst.Json.Core\HealthFirst.Json.Core.csproj" />
     <ProjectReference Include="..\HealthFirst.Todo\HealthFirst.Todo.csproj" />
     <ProjectReference Include="..\HealthFirst.Training\HealthFirst.Training.csproj" />
