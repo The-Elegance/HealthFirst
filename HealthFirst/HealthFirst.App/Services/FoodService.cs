@@ -6,7 +6,7 @@ namespace HealthFirst.App.Services
 {
     public class FoodService
     {
-        const string filePath = "N:\\VirtualStand\\Data\\food.json";
+        const string filePath = "food.json";
 
         private readonly FoodListService _foodListService;
 

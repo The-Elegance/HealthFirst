@@ -7,12 +7,12 @@ namespace HealthFirst.App.Services
 {
     public class TrainingService
     {
-        const string FilePath = "N:\\VirtualStand\\Data\\trainingCourses.json";
+        const string FilePath = "trainingCourses.json";
         private readonly TrainingsListService _trainingListService;
 
         public TrainingService()
         {
-            _trainingListService = new TrainingsListService(FilePath);
+            _trainingListService = new TrainingsListService(AppSettings.APP_FOLDER_NAME + "/" + FilePath);
         }
 
         public void SaveTrainingModel(TrainingsModel model) 
