@@ -9,7 +9,7 @@ namespace HealthFirst.App.Services
     {
         const string FilePath = "trainingCourses.json";
       
-        private readonly TrainingsListService _trainingListService;
+        private readonly IDataListService<ITrainingCourse> _trainingListService;
 
         public TrainingService()
         {

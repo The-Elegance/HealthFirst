@@ -7,8 +7,8 @@ namespace HealthFirst.App.Services
     public class TodoService
     {
         const string FilePath = "todolist.json";
-
-        private readonly TodoListService _todoListService;
+      
+        private readonly IDataListService<ITodoItem> _todoListService;
 
         public TodoService()
         {

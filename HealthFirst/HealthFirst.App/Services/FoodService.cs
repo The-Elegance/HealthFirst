@@ -8,7 +8,7 @@ namespace HealthFirst.App.Services
     {
         const string filePath = "food.json";
 
-        private readonly FoodListService _foodListService;
+        private readonly IDataListService<IDishRecipe> _foodListService;
 
         public FoodService() 
         {

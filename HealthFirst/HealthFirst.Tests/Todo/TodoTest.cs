@@ -1,4 +1,4 @@
-﻿using HealthFirst.Core.Todo;
+﻿using HealthFirst.Todo;
 using NUnit.Framework;
 
 
