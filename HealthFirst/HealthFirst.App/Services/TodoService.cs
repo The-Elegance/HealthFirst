@@ -39,6 +39,7 @@ namespace HealthFirst.App.Services
         {
             var todoItems = _todoListService.Read();
 
+
             if (todoItems == null)
                 return new TodoListModel();
 
