@@ -1,14 +1,19 @@
 using HealthFirst.App.Models.Todo;
 using HealthFirst.Todo;
 using HealthFirst.Json.App;
-using System;
-using System.Collections.Generic;
 
 namespace HealthFirst.App.Services
 {
     public class TodoService
     {
-        const string DirPath = "N:\\VirtualStand\\Data\\todolist.json";
+        const string FilePath = "todolist.json";
+
+        private readonly TodoListService _todoListService;
+
+        public TodoService()
+        {
+            _todoListService = new TodoListService(AppSettings.APP_FOLDER_NAME + "/" + FilePath);
+        }
 
         public void SaveTodoModel(TodoListModel todoItemModels) 
         {
@@ -27,15 +32,13 @@ namespace HealthFirst.App.Services
                 todoItems.Add(todoItem);
             }
 
-
-            var todolistService = new TodoListService(DirPath);
-            todolistService.Write(todoItems);
+            _todoListService.Write(todoItems);
         }
 
         public TodoListModel GetTodoListModel()
         {
-            var todolistService = new TodoListService(DirPath);
-            var todoItems = todolistService.Read();
+            var todoItems = _todoListService.Read();
+
 
             if (todoItems == null)
                 return new TodoListModel();
