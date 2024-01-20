@@ -27,6 +27,7 @@ namespace HealthFirst.App.Services
                 todoItems.Add(todoItem);
             }
 
+
             var todolistService = new TodoListService(DirPath);
             todolistService.Write(todoItems);
         }
