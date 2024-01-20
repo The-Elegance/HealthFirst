@@ -8,5 +8,9 @@ namespace HealthFirst.App.Services
 {
     public class TrainingService
     {
+        public void AddTraining() 
+        {
+            
+        }
     }
 }

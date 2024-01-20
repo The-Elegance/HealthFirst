@@ -56,7 +56,7 @@ namespace HealthFirst.WPF
 
             _app.Resources.MergedDictionaries.Add(new ResourceDictionary()
             {
-                Source = new Uri("pack://application:,,,/Resources/Themes/DarkTheme.xaml")
+                Source = new Uri("pack://application:,,,/Resources/Themes/LightTheme.xaml")
             });
 
             _app.MainWindow = _host.Services.GetRequiredService<MainWindow>();

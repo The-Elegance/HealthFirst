@@ -5,6 +5,7 @@ using HealthFirst.WPF.Mvvm.Core.Modal;
 using HealthFirst.WPF.Mvvm.Core.Stores;
 using HealthFirst.WPF.Mvvm.ViewModels.Layouts;
 using HealthFirst.WPF.Mvvm.ViewModels.Modal;
+using HealthFirst.WPF.Mvvm.ViewModels.Modal.TrainingCourseFactory;
 
 namespace HealthFirst.WPF.Mvvm.ViewModels
 {
@@ -31,10 +32,10 @@ namespace HealthFirst.WPF.Mvvm.ViewModels
 
             var exerciesBuilder = new ExercisesBuilder().AddPresentationInfo("Home training", "...", "...", 4, 12, TimeSpan.FromSeconds(60));
 
-            _navigationStore.CurrentViewModel = new TrainingMenuLayoutViewModel(); //new TrainingCourseViewModel();//new TrainingViewModel(new List<TrainingCourse>()); //new MainMenuLayoutViewModel();
+            _navigationStore.CurrentViewModel = new TodoMenuLayoutViewModel(_modalNavigationStore); //new TrainingCourseViewModel();//new TrainingViewModel(new List<TrainingCourse>()); //new MainMenuLayoutViewModel();
             _modalNavigationStore.CurrentViewModelChanged += OnModalCurrentViewModelChanged;
 
-            _modalNavigationStore.RegisterModalViewModel(typeof(AddTrainingCourseViewModel), () => new AddTrainingCourseViewModel());
+            _modalNavigationStore.RegisterModalViewModel(typeof(TrainingCourseFactoryViewModel), () => new TrainingCourseFactoryViewModel(_modalNavigationStore));
             //_modalNavigationStore.OpenRegisteredModal(typeof(AddTrainingCourseViewModel));
         }
 

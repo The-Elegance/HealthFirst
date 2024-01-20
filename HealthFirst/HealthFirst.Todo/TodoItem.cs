@@ -1,12 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace HealthFirst.Core.Todo
+﻿namespace HealthFirst.Todo
 {
-    public class TodoItem : ITodoItem<TodoItem>
+    public class TodoItem : ITodoItem
     {
         public string Title { get; set; }
         public string Description { get; set; }

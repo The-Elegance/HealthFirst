@@ -1,14 +1,26 @@
 ﻿<ResourceDictionary
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:converters="clr-namespace:HealthFirst.WPF.Converters"
     xmlns:viewLayouts="clr-namespace:HealthFirst.WPF.Mvvm.Views.Layouts"
-    xmlns:viewModel="clr-namespace:HealthFirst.WPF.Mvvm.Views.Modal"
     xmlns:viewSidebar="clr-namespace:HealthFirst.WPF.Mvvm.Views.Sidebar"
+    xmlns:viewTCFModal="clr-namespace:HealthFirst.WPF.Mvvm.Views.Modal.TrainingCourseFactory"
+    xmlns:viewTIFModel="clr-namespace:HealthFirst.WPF.Mvvm.Views.Modal.TodoItemFactory"
+    xmlns:viewTodo="clr-namespace:HealthFirst.WPF.Mvvm.Views.Pages.Todo"
     xmlns:viewTraining="clr-namespace:HealthFirst.WPF.Mvvm.Views.Pages.Trainings"
     xmlns:vmLayouts="clr-namespace:HealthFirst.WPF.Mvvm.ViewModels.Layouts"
-    xmlns:vmModal="clr-namespace:HealthFirst.WPF.Mvvm.ViewModels.Modal"
     xmlns:vmSidebar="clr-namespace:HealthFirst.WPF.Mvvm.ViewModels.Sidebar"
+    xmlns:vmTCFModal="clr-namespace:HealthFirst.WPF.Mvvm.ViewModels.Modal.TrainingCourseFactory"
+    xmlns:vmTIFModal="clr-namespace:HealthFirst.WPF.Mvvm.ViewModels.Modal.TodoItemFactory"
+    xmlns:vmTodo="clr-namespace:HealthFirst.WPF.Mvvm.ViewModels.MainMenu.Todo"
     xmlns:vmTraining="clr-namespace:HealthFirst.WPF.Mvvm.ViewModels.MainMenu.Trainings">
+
+    <BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter" />
+    <converters:NegativeBooleanToVisibilityConverter x:Key="NegativeBooleanToVisibilityConverter" />
+    <converters:WindowHeightToXProcentHeight x:Key="WindowHeightToXProcentHeight" />
+    <converters:WindowWidthToXProcentWidth x:Key="WindowWidthToXProcentWidth" />
+
+    <!--  Layouts  -->
 
     <DataTemplate DataType="{x:Type vmLayouts:MainMenuLayoutViewModel}">
         <viewLayouts:MainMenuLayoutView />
@@ -18,9 +30,27 @@
         <viewLayouts:TrainingMenuLayoutView />
     </DataTemplate>
 
+    <DataTemplate DataType="{x:Type vmLayouts:TodoMenuLayoutViewModel}">
+        <viewLayouts:TodoMenuLayoutView />
+    </DataTemplate>
+
+
+    <!--  Side Bar  -->
+
     <DataTemplate DataType="{x:Type vmSidebar:SidebarViewModel}">
         <viewSidebar:SidebarView />
     </DataTemplate>
+
+    <!--  Todo  -->
+    <DataTemplate DataType="{x:Type vmTodo:TodoListViewModel}">
+        <viewTodo:TodoListView />
+    </DataTemplate>
+
+    <DataTemplate DataType="{x:Type vmTIFModal:TodoItemFactoryViewModel}">
+        <viewTIFModel:TodoItemFactoryView />
+    </DataTemplate>
+
+    <!--  Trainings  -->
 
     <DataTemplate DataType="{x:Type vmTraining:TrainingsViewModel}">
         <viewTraining:TrainingsView />
@@ -34,7 +64,11 @@
         <viewTraining:ExerciesPageView />
     </DataTemplate>
 
-    <DataTemplate DataType="{x:Type vmModal:AddTrainingCourseViewModel}">
-        <viewModel:AddTrainingCourseView />
+    <DataTemplate DataType="{x:Type vmTCFModal:TrainingCourseFactoryViewModel}">
+        <viewTCFModal:TrainingCourseFactoryView />
+    </DataTemplate>
+
+    <DataTemplate DataType="{x:Type vmTCFModal:TrainingWeekFactoryViewModel}">
+        <viewTCFModal:TrainingWeekFactoryView />
     </DataTemplate>
 </ResourceDictionary>

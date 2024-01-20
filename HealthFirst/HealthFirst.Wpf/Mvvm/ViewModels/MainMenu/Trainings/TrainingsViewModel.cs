@@ -2,12 +2,16 @@
 using HealthFirst.Core.Training.Interfaces;
 using HealthFirst.WPF.Mvvm.Core;
 using HealthFirst.WPF.Mvvm.Core.Commands;
+using HealthFirst.WPF.Mvvm.Core.Stores;
+using HealthFirst.WPF.Mvvm.ViewModels.Modal.TrainingCourseFactory;
 using System.Windows.Input;
 
 namespace HealthFirst.WPF.Mvvm.ViewModels.MainMenu.Trainings
 {
     public sealed class TrainingsViewModel : ViewModelBase
     {
+        private readonly IModalNavigationStore _modelNavigationStore;
+
         #region Properties
 
 
@@ -28,7 +32,7 @@ namespace HealthFirst.WPF.Mvvm.ViewModels.MainMenu.Trainings
         {
             get => RelayCommand.GetCommand(ref _trainingCommand, () => 
             {
-                
+                _modelNavigationStore.OpenRegisteredModal(typeof(TrainingCourseFactoryViewModel));
             });
         }
 
@@ -49,8 +53,9 @@ namespace HealthFirst.WPF.Mvvm.ViewModels.MainMenu.Trainings
         #region Constructors
 
         // main nav point of view section
-        public TrainingsViewModel(IEnumerable<TrainingCourse> trainings, Action<ViewModelBase> changeViewModel, ICommand backCommand)
+        public TrainingsViewModel(IModalNavigationStore modelNavigationStore, IEnumerable<TrainingCourse> trainings, Action<ViewModelBase> changeViewModel, ICommand backCommand)
         {
+            _modelNavigationStore = modelNavigationStore;
             Trainings = trainings;
             _changeCurrentViewModel = changeViewModel;
             _backCommand = backCommand;
