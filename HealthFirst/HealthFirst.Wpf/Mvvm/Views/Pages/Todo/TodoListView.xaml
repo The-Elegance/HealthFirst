@@ -1,0 +1,266 @@
+﻿<UserControl
+    x:Class="HealthFirst.WPF.Mvvm.Views.Pages.Todo.TodoListView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:appTodo="clr-namespace:HealthFirst.App.Models.Todo;assembly=HealthFirst.App"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:domain="clr-namespace:HealthFirst.Todo;assembly=HealthFirst.Todo"
+    xmlns:local="clr-namespace:HealthFirst.WPF.Mvvm.Views.Pages.Todo"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:vm="clr-namespace:HealthFirst.WPF.Mvvm.ViewModels.MainMenu.Todo"
+    d:DataContext="{d:DesignInstance vm:TodoListViewModel}"
+    d:DesignHeight="450"
+    d:DesignWidth="800"
+    mc:Ignorable="d">
+
+
+    <UserControl.Resources>
+        <DataTemplate DataType="{x:Type appTodo:TodoItemModel}">
+            <Border
+                Margin="0,2,0,0"
+                Padding="8"
+                Background="{DynamicResource PrimarySolidColorBrush}"
+                BorderBrush="{DynamicResource SeparateSolidColorBrush}"
+                BorderThickness="1"
+                CornerRadius="2">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="Auto" />
+                    </Grid.ColumnDefinitions>
+
+                    <TextBlock
+                        FontSize="14"
+                        Text="{Binding Title}"
+                        TextWrapping="WrapWithOverflow" />
+
+                    <Grid Grid.Column="1">
+                        <StackPanel
+                            x:Name="NotStartedMenu"
+                            Orientation="Horizontal"
+                            Visibility="Collapsed">
+                            <Button
+                                Width="32"
+                                Height="32"
+                                Margin="0,0,8,0"
+                                Command="{Binding DataContext.ToInProgressCommand, RelativeSource={RelativeSource AncestorType=UserControl}}"
+                                CommandParameter="{Binding}"
+                                Content="IP" />
+                            <Button
+                                Width="32"
+                                Height="32"
+                                Margin="0,0,8,0"
+                                Command="{Binding DataContext.ToCompletedCommand, RelativeSource={RelativeSource AncestorType=UserControl}}"
+                                CommandParameter="{Binding}"
+                                Content="C" />
+
+                            <Button
+                                Width="32"
+                                Height="32"
+                                Margin="0,0,8,0"
+                                Command="{Binding DataContext.DeleteCommand, RelativeSource={RelativeSource AncestorType=UserControl}}"
+                                CommandParameter="{Binding}"
+                                Content="Del" />
+                        </StackPanel>
+
+                        <StackPanel
+                            x:Name="InProgressMenu"
+                            Orientation="Horizontal"
+                            Visibility="Collapsed">
+                            <Button
+                                Width="32"
+                                Height="32"
+                                Margin="0,0,8,0"
+                                Command="{Binding DataContext.ToNotStartedCommand, RelativeSource={RelativeSource AncestorType=UserControl}}"
+                                CommandParameter="{Binding}"
+                                Content="NS" />
+                            <Button
+                                Width="32"
+                                Height="32"
+                                Margin="0,0,8,0"
+                                Command="{Binding DataContext.ToCompletedCommand, RelativeSource={RelativeSource AncestorType=UserControl}}"
+                                CommandParameter="{Binding}"
+                                Content="C" />
+
+                            <Button
+                                Width="32"
+                                Height="32"
+                                Margin="0,0,8,0"
+                                Command="{Binding DataContext.DeleteCommand, RelativeSource={RelativeSource AncestorType=UserControl}}"
+                                CommandParameter="{Binding}"
+                                Content="Del" />
+                        </StackPanel>
+
+                        <StackPanel
+                            x:Name="CompletedMenu"
+                            Orientation="Horizontal"
+                            Visibility="Collapsed">
+                            <Button
+                                Width="32"
+                                Height="32"
+                                Margin="0,0,8,0"
+                                Command="{Binding DataContext.ToNotStartedCommand, RelativeSource={RelativeSource AncestorType=UserControl}}"
+                                CommandParameter="{Binding}"
+                                Content="NS" />
+
+                            <Button
+                                Width="32"
+                                Height="32"
+                                Margin="0,0,8,0"
+                                Command="{Binding DataContext.ToInProgressCommand, RelativeSource={RelativeSource AncestorType=UserControl}}"
+                                CommandParameter="{Binding}"
+                                Content="IP" />
+
+                            <Button
+                                Width="32"
+                                Height="32"
+                                Margin="0,0,8,0"
+                                Command="{Binding DataContext.DeleteCommand, RelativeSource={RelativeSource AncestorType=UserControl}}"
+                                CommandParameter="{Binding}"
+                                Content="Del" />
+                        </StackPanel>
+                    </Grid>
+                </Grid>
+            </Border>
+
+            <DataTemplate.Triggers>
+                <DataTrigger Binding="{Binding Status}" Value="{x:Static domain:Status.NotStarted}">
+                    <Setter TargetName="NotStartedMenu" Property="Visibility" Value="Visible" />
+                </DataTrigger>
+                <DataTrigger Binding="{Binding Status}" Value="{x:Static domain:Status.InProgress}">
+                    <Setter TargetName="InProgressMenu" Property="Visibility" Value="Visible" />
+                </DataTrigger>
+                <DataTrigger Binding="{Binding Status}" Value="{x:Static domain:Status.Completed}">
+                    <Setter TargetName="CompletedMenu" Property="Visibility" Value="Visible" />
+                </DataTrigger>
+            </DataTemplate.Triggers>
+        </DataTemplate>
+    </UserControl.Resources>
+
+
+    <Border Padding="32">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+
+            <Grid Margin="0,0,0,16">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <TextBlock FontSize="20" Text="Tasks" />
+
+                <StackPanel
+                    Grid.Column="1"
+                    Margin="0,0,8,0"
+                    Orientation="Horizontal">
+                    <Button
+                        Margin="0,0,8,0"
+                        Command="{Binding OpenTodoItemFactoryCommand}"
+                        Content="Add Task" />
+
+                    <Button
+                        HorizontalAlignment="Right"
+                        Command="{Binding SaveTodoListModelCommand}"
+                        Content="Save Todo List" />
+                </StackPanel>
+            </Grid>
+
+            <Grid Grid.Row="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+
+                <!--  Not Started  -->
+                <Border
+                    Padding="16"
+                    Background="{DynamicResource SecondarySolidColorBrush}"
+                    BorderBrush="{DynamicResource PrimarySolidColorBrush}"
+                    BorderThickness="0,0,1,0">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="*" />
+                        </Grid.RowDefinitions>
+
+                        <Border
+                            Padding="0,0,0,8"
+                            BorderBrush="{DynamicResource SeparateSolidColorBrush}"
+                            BorderThickness="0,0,0,1">
+                            <TextBlock
+                                FontSize="14"
+                                FontWeight="Medium"
+                                Text="Not Started" />
+                        </Border>
+
+                        <ScrollViewer Grid.Row="1">
+                            <ItemsControl ItemsSource="{Binding Model.NotStarted}" />
+                        </ScrollViewer>
+                    </Grid>
+                </Border>
+
+                <!--  In Progress  -->
+                <Border
+                    Grid.Column="1"
+                    Padding="16"
+                    Background="{DynamicResource SecondarySolidColorBrush}"
+                    BorderBrush="{DynamicResource PrimarySolidColorBrush}"
+                    BorderThickness="0,0,1,0">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="*" />
+                        </Grid.RowDefinitions>
+
+                        <Border
+                            Padding="0,0,0,8"
+                            BorderBrush="{DynamicResource SeparateSolidColorBrush}"
+                            BorderThickness="0,0,0,1">
+                            <TextBlock
+                                FontSize="14"
+                                FontWeight="Medium"
+                                Text="In Progress" />
+                        </Border>
+
+                        <ScrollViewer Grid.Row="1">
+                            <ItemsControl ItemsSource="{Binding Model.InProgress}" />
+                        </ScrollViewer>
+                    </Grid>
+                </Border>
+
+                <!--  Completed  -->
+                <Border
+                    Grid.Column="2"
+                    Padding="16"
+                    Background="{DynamicResource SecondarySolidColorBrush}"
+                    BorderBrush="{DynamicResource PrimarySolidColorBrush}"
+                    BorderThickness="0,0,1,0">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="*" />
+                        </Grid.RowDefinitions>
+
+                        <Border
+                            Padding="0,0,0,8"
+                            BorderBrush="{DynamicResource SeparateSolidColorBrush}"
+                            BorderThickness="0,0,0,1">
+                            <TextBlock
+                                FontSize="14"
+                                FontWeight="Medium"
+                                Text="Completed" />
+                        </Border>
+
+                        <ScrollViewer Grid.Row="1">
+                            <ItemsControl ItemsSource="{Binding Model.Completed}" />
+                        </ScrollViewer>
+                    </Grid>
+                </Border>
+            </Grid>
+        </Grid>
+    </Border>
+</UserControl>

@@ -1,8 +1,8 @@
 ﻿
 
-namespace HealthFirst.Core.Todo
+namespace HealthFirst.Todo
 {
-    public interface ITodoItem<T> where T : ITodoItem<T>
+    public interface ITodoItem
     {
         public string Title { get; set; }
         public string Description { get; set; }

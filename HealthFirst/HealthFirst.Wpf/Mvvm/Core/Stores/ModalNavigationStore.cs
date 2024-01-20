@@ -44,6 +44,8 @@ namespace HealthFirst.WPF.Mvvm.Core.Stores
 
         public void Close(object obj)
         {
+            if (CurrentViewModel == null)
+                return;
             CurrentViewModel.CloseCommandExecutedEvent -= Close;
             CurrentViewModel = null;
         }

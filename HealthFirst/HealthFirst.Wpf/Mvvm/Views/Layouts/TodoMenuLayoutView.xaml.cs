@@ -13,14 +13,14 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace HealthFirst.WPF.Mvvm.Views.Modal
+namespace HealthFirst.WPF.Mvvm.Views.Layouts
 {
     /// <summary>
-    /// Логика взаимодействия для AddTrainingCourseView.xaml
+    /// Логика взаимодействия для TodoMenuLayoutView.xaml
     /// </summary>
-    public partial class AddTrainingCourseView : UserControl
+    public partial class TodoMenuLayoutView : UserControl
     {
-        public AddTrainingCourseView()
+        public TodoMenuLayoutView()
         {
             InitializeComponent();
         }

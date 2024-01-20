@@ -14,14 +14,14 @@ namespace HealthFirst.WPF.Mvvm.ViewModels.Layouts
 
         private TrainingsViewModel _trainingsViewModel;
 
-        public TrainingMenuLayoutViewModel()
+        public TrainingMenuLayoutViewModel(IModalNavigationStore modalNavigationStore)
         {
             _navigationStore = new NavigationStore();
 
             _navigationStore.CurrentViewModelChanged += OnCurrentViewModelChanged;
 
             BackCommand = new NavigateCommand<ViewModelBase>(_navigationStore, () => _trainingsViewModel);
-            _trainingsViewModel = new TrainingsViewModel(new List<TrainingCourse>(), ChangeCurrentViewModel, BackCommand);
+            _trainingsViewModel = new TrainingsViewModel(modalNavigationStore, new List<TrainingCourse>(), ChangeCurrentViewModel, BackCommand);
             _navigationStore.CurrentViewModel = _trainingsViewModel;
         }
 

@@ -15,6 +15,8 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\HealthFirst.Food\HealthFirst.Food.csproj" />
+    <ProjectReference Include="..\HealthFirst.Todo\HealthFirst.Todo.csproj" />
     <ProjectReference Include="..\HealthFirst.Training\HealthFirst.Training.csproj" />
     <ProjectReference Include="..\HealthFirst\HealthFirst.Core.csproj" />
   </ItemGroup>

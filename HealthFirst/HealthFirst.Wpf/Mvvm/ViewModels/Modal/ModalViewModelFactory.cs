@@ -2,11 +2,5 @@
 
 namespace HealthFirst.WPF.Mvvm.ViewModels.Modal
 {
-    class ModalViewModelFactory : IModalAbstractFactory<AddTrainingCourseViewModel>
-    {
-        public AddTrainingCourseViewModel Create()
-        {
-            return new AddTrainingCourseViewModel();
-        }
-    }
+
 }

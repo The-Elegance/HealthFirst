@@ -10,7 +10,10 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Mvvm\Views\Templates\" />
+    <Compile Remove="Mvvm\Views\Templates\**" />
+    <EmbeddedResource Remove="Mvvm\Views\Templates\**" />
+    <None Remove="Mvvm\Views\Templates\**" />
+    <Page Remove="Mvvm\Views\Templates\**" />
   </ItemGroup>
 
   <ItemGroup>
@@ -18,6 +21,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\HealthFirst.App\HealthFirst.App.csproj" />
+    <ProjectReference Include="..\HealthFirst.Food\HealthFirst.Food.csproj" />
+    <ProjectReference Include="..\HealthFirst.Todo\HealthFirst.Todo.csproj" />
     <ProjectReference Include="..\HealthFirst.Training\HealthFirst.Training.csproj" />
     <ProjectReference Include="..\HealthFirst\HealthFirst.Core.csproj" />
   </ItemGroup>
