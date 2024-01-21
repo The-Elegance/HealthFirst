@@ -3,25 +3,24 @@ using HealthFirst.Json.Core;
 
 namespace HealthFirst.Json.App
 {
-    public class TrainingsListService : IDataListService<ITrainingCourse>
+    public sealed class TrainingsListService : IDataListService<ITrainingCourse>
     {
+        const string FilePath = "trainingCourses.json";
         private readonly JsonTool<IEnumerable<ITrainingCourse>> _jsonTool;
-        private readonly string _path;
 
         public TrainingsListService(string path)
         {
-            _path = path;
-            _jsonTool = new JsonTool<IEnumerable<ITrainingCourse>>();
+            _jsonTool = new JsonTool<IEnumerable<ITrainingCourse>>(path, FilePath);
         }
 
         public void Write(IEnumerable<ITrainingCourse> trainingCourses)
         {
-            _jsonTool.Serialize(trainingCourses, _path);
+            _jsonTool.Serialize(trainingCourses);
         }
 
         public IEnumerable<ITrainingCourse> Read()
         {
-            return _jsonTool.Deserialize(_path);
+            return _jsonTool.Deserialize();
         }
     }
 }

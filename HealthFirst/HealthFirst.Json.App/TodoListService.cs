@@ -1,27 +1,26 @@
-﻿using HealthFirst.Todo;
-using HealthFirst.Json.Core;
+﻿using HealthFirst.Json.Core;
+using HealthFirst.Todo;
 
 namespace HealthFirst.Json.App
 {
-    public class TodoListService : IDataListService<ITodoItem>
+    public sealed class TodoListService : IDataListService<ITodoItem>
     {
+        const string FilePath = "todolist.json";
         private readonly JsonTool<IEnumerable<ITodoItem>> _jsonTool;
-        private readonly string _path;
 
-        public TodoListService(string path)
+        public TodoListService(string dirPath)
         {
-            _path = path;
-            _jsonTool = new JsonTool<IEnumerable<ITodoItem>>();
+            _jsonTool = new JsonTool<IEnumerable<ITodoItem>>(dirPath, FilePath);
         }
 
-        public void Write(IEnumerable<ITodoItem> todoItems) 
+        public void Write(IEnumerable<ITodoItem> todoItems)
         {
-            _jsonTool.Serialize(todoItems, _path);
+            _jsonTool.Serialize(todoItems);
         }
 
-        public IEnumerable<ITodoItem> Read() 
+        public IEnumerable<ITodoItem> Read()
         {
-            return _jsonTool.Deserialize(_path);
+            return _jsonTool.Deserialize();
         }
     }
 }

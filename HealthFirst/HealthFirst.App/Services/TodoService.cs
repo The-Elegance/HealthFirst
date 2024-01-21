@@ -1,32 +1,43 @@
 using HealthFirst.App.Models.Todo;
-using HealthFirst.Todo;
 using HealthFirst.Json.App;
+using HealthFirst.Todo;
 
 namespace HealthFirst.App.Services
 {
     public class TodoService
     {
-        const string FilePath = "todolist.json";
-      
         private readonly IDataListService<ITodoItem> _todoListService;
+
+
+        #region Constructors
+
 
         public TodoService()
         {
-            _todoListService = new TodoListService(AppSettings.APP_FOLDER_NAME + "/" + FilePath);
+            _todoListService = new TodoListService(AppSettings.AppPath);
         }
 
-        public void SaveTodoModel(TodoListModel todoItemModels) 
+        public TodoService(IDataListService<ITodoItem> _dataListService)
+        {
+            _todoListService = _dataListService;
+        }
+
+
+        #endregion Constructors
+
+
+        public void SaveTodoModel(TodoListModel todoItemModels)
         {
             var todoItems = new List<ITodoItem>();
 
-            foreach (var todoItemModel in todoItemModels.GetAllTodoItems) 
+            foreach (var todoItemModel in todoItemModels.GetAllTodoItems)
             {
                 var todoItem = new TodoItem(
-                    todoItemModel.Title, 
-                    todoItemModel.Description, 
-                    todoItemModel.CreatedTime, 
-                    todoItemModel.DeadlineTime, 
-                    todoItemModel.Status, 
+                    todoItemModel.Title,
+                    todoItemModel.Description,
+                    todoItemModel.CreatedTime,
+                    todoItemModel.DeadlineTime,
+                    todoItemModel.Status,
                     todoItemModel.Priority);
 
                 todoItems.Add(todoItem);
