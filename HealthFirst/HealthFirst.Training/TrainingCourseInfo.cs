@@ -4,8 +4,8 @@ using HealthFirst.Core.Training.Interfaces;
 namespace HealthFirst.Core.Training
 {
     public readonly struct TrainingCourseInfo(
-        string name, 
-        string description, 
+        string name,
+        string description,
         string summary,
         IMediaObject headerMedia
         ) : ITrainingCourseInfo

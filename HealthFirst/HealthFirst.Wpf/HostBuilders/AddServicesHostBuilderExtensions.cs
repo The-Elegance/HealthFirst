@@ -1,5 +1,4 @@
-﻿using HealthFirst.WPF;
-using Microsoft.Extensions.DependencyInjection;
+﻿using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 
 namespace HealthFirst.WPF.HostBuilders

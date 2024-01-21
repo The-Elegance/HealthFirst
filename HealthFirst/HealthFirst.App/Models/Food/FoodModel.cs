@@ -17,7 +17,7 @@ namespace HealthFirst.App.Models.Food
             Recipes = new ObservableCollection<DishRecipeModel>(dishRecipes);
         }
 
-        public void AddRecipe(DishRecipeModel dishRecipeModel) 
+        public void AddRecipe(DishRecipeModel dishRecipeModel)
         {
             Recipes.Add(dishRecipeModel);
         }

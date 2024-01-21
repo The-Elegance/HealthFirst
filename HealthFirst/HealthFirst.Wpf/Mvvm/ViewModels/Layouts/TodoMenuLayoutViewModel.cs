@@ -23,7 +23,7 @@ namespace HealthFirst.WPF.Mvvm.ViewModels.Layouts
 
         private void OnCurrentViewModelChanged()
         {
-            OnPropertyChanged(nameof(CurrentViewModel));   
+            OnPropertyChanged(nameof(CurrentViewModel));
         }
     }
 }

@@ -15,10 +15,10 @@ namespace HealthFirst.WPF.Mvvm.ViewModels.Modal.TrainingCourseFactory
 
         private readonly IModalNavigationStore _modalNavigationStore;
 
-        public ObservableCollection<Exericise> Exericise { get; } = new ();
+        public ObservableCollection<Exericise> Exericise { get; } = new();
 
         public TrainingCourseFactoryViewModel(IModalNavigationStore modalNavigationStore)
-        {            
+        {
             _modalNavigationStore = modalNavigationStore;
 
             Exericise.Add(new Exericise(0) { Name = "Пресс" });
@@ -34,9 +34,9 @@ namespace HealthFirst.WPF.Mvvm.ViewModels.Modal.TrainingCourseFactory
 
 
         private RelayCommand _editTrainingWeekCommand;
-        public ICommand EditTrainingWeekCommand 
-        { 
-            get => RelayCommand.GetCommand(ref _editTrainingWeekCommand, (trainingWeek) => 
+        public ICommand EditTrainingWeekCommand
+        {
+            get => RelayCommand.GetCommand(ref _editTrainingWeekCommand, (trainingWeek) =>
             {
                 var backCommand = new ModalNavigateCommand<TrainingCourseFactoryViewModel>(_modalNavigationStore, () => this);
                 _modalNavigationStore.Open(new TrainingWeekFactoryViewModel(backCommand, Exericise));

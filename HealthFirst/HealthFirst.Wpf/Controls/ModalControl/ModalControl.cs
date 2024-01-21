@@ -1,6 +1,6 @@
-﻿using System.Windows.Controls;
+﻿using System.Windows;
+using System.Windows.Controls;
 using System.Windows.Media.Animation;
-using System.Windows;
 
 namespace HealthFirst.WPF.Controls
 {

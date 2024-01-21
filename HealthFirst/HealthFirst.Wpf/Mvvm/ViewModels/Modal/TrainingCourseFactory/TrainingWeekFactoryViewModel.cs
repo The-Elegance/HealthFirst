@@ -5,7 +5,7 @@ using System.Windows.Input;
 
 namespace HealthFirst.WPF.Mvvm.ViewModels.Modal.TrainingCourseFactory
 {
-    public sealed class Exericise 
+    public sealed class Exericise
     {
         public uint Id { get; }
         public string Name { get; set; }
@@ -54,11 +54,11 @@ namespace HealthFirst.WPF.Mvvm.ViewModels.Modal.TrainingCourseFactory
         public ICommand BackCommand { get; }
 
         private RelayCommand _selectDayCommand;
-        public ICommand SelectDayCommand 
+        public ICommand SelectDayCommand
         {
-            get => RelayCommand.GetCommand(ref _selectDayCommand, (obj) => 
+            get => RelayCommand.GetCommand(ref _selectDayCommand, (obj) =>
             {
-                if (int.TryParse(obj.ToString(), out int res)) 
+                if (int.TryParse(obj.ToString(), out int res))
                 {
                     SelectedDay = TrainingDays[res - 1];
                     OnPropertyChanged(nameof(SelectedDay));
@@ -67,9 +67,9 @@ namespace HealthFirst.WPF.Mvvm.ViewModels.Modal.TrainingCourseFactory
         }
 
         private RelayCommand _selectExerciseCommand;
-        public ICommand SelectExerciseCommand 
+        public ICommand SelectExerciseCommand
         {
-            get => RelayCommand.GetCommand(ref _selectExerciseCommand, (obj) => 
+            get => RelayCommand.GetCommand(ref _selectExerciseCommand, (obj) =>
             {
                 var ex = obj as Exericise;
 
@@ -90,7 +90,7 @@ namespace HealthFirst.WPF.Mvvm.ViewModels.Modal.TrainingCourseFactory
 
                 SelectedDay.SelectedExericies.Remove(ex);
                 SelectedDay.AvailableExercies.Add(ex);
-               
+
                 ex.IsSelected = false;
                 OnPropertyChanged(nameof(ex.IsSelected));
             });

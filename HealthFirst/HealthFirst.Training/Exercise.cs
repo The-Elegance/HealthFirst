@@ -13,7 +13,7 @@ namespace HealthFirst.Core.Training
         public Exercise(uint id, IExericePresentationInfo presentationInfo, ICollection<ISetOfExercise> setOfExercise)
         {
             Id = id;
-            PresentaionInfo= presentationInfo;
+            PresentaionInfo = presentationInfo;
             SetsOfExercise = setOfExercise;
 
             _toString = $"Exercise {id}: PresentaionInfo: {presentationInfo}, SetsOfExercise: {SetsOfExercise}";

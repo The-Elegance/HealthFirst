@@ -19,7 +19,7 @@ namespace HealthFirst.WPF.Mvvm.Core.Commands
         }
     }
 
-    public sealed class NavigateCommand : CommandBase 
+    public sealed class NavigateCommand : CommandBase
     {
         private readonly Action<ViewModelBase> _changeCurrentViewModel;
         private readonly Func<ViewModelBase> _createViewModel;

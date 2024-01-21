@@ -14,9 +14,9 @@ namespace HealthFirst.WPF.Mvvm.ViewModels.MainMenu.Trainings
 
 
         private RelayCommand _openExerciesPage;
-        public ICommand OpenExerciesPage 
+        public ICommand OpenExerciesPage
         {
-            get => RelayCommand.GetCommand<IExercise>(ref _openExerciesPage, (exericise) => 
+            get => RelayCommand.GetCommand<IExercise>(ref _openExerciesPage, (exericise) =>
             {
                 var backNavCommand = new NavigateCommand(_changeCurrentViewModel, () => this);
                 _changeCurrentViewModel(new ExercisePageViewModel(exericise, backNavCommand));
@@ -25,10 +25,10 @@ namespace HealthFirst.WPF.Mvvm.ViewModels.MainMenu.Trainings
 
         public ICommand BackCommand { get; }
 
-        public TrainingCourseViewModel(ITrainingCourse trainingCourse, ICommand backCommand, Action<ViewModelBase> changeCurrentViewModel) 
+        public TrainingCourseViewModel(ITrainingCourse trainingCourse, ICommand backCommand, Action<ViewModelBase> changeCurrentViewModel)
         {
             _trainingCourse = trainingCourse;
-            BackCommand  = backCommand;
+            BackCommand = backCommand;
             _changeCurrentViewModel = changeCurrentViewModel;
         }
     }

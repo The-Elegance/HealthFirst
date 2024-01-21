@@ -18,10 +18,10 @@ namespace HealthFirst.WPF.Mvvm.ViewModels.Modal.TodoItemFactory
         }
 
         public RelayCommand _addItemCommand;
-        public ICommand AddItemCommand 
+        public ICommand AddItemCommand
         {
-            get => RelayCommand.GetCommand(ref _addItemCommand, () => 
-            { 
+            get => RelayCommand.GetCommand(ref _addItemCommand, () =>
+            {
                 _addItemModel?.Invoke(Model);
                 CloseCommand?.Execute(null);
             });

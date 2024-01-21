@@ -10,7 +10,7 @@ namespace HealthFirst.WPF.Mvvm.ViewModels.Layouts
     {
         private INavigationStore _navigationStore;
 
-        public ViewModelBase CurrentViewModel { get => _navigationStore.CurrentViewModel ;}
+        public ViewModelBase CurrentViewModel { get => _navigationStore.CurrentViewModel; }
 
         private TrainingsViewModel _trainingsViewModel;
 
@@ -27,7 +27,7 @@ namespace HealthFirst.WPF.Mvvm.ViewModels.Layouts
 
         public NavigateCommand<ViewModelBase> BackCommand { get; }
 
-        private void ChangeCurrentViewModel(ViewModelBase viewModelBase) 
+        private void ChangeCurrentViewModel(ViewModelBase viewModelBase)
         {
             _navigationStore.CurrentViewModel = viewModelBase;
         }

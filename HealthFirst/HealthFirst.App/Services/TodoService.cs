@@ -38,7 +38,8 @@ namespace HealthFirst.App.Services
                     todoItemModel.CreatedTime,
                     todoItemModel.DeadlineTime,
                     todoItemModel.Status,
-                    todoItemModel.Priority);
+                    todoItemModel.Priority,
+                    todoItemModel.FinishedTime);
 
                 todoItems.Add(todoItem);
             }

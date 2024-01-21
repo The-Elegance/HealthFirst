@@ -7,9 +7,9 @@ namespace HealthFirst.WPF.HostBuilders
 {
     public static class AddViewsHostBuilderExtensions
     {
-        public static IHostBuilder AddViews(this IHostBuilder host) 
+        public static IHostBuilder AddViews(this IHostBuilder host)
         {
-            host.ConfigureServices(services => 
+            host.ConfigureServices(services =>
             {
                 // Main Window
                 services.AddSingleton(w => new MainWindow(w.GetRequiredService<MainViewModel>()));
