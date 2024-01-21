@@ -6,24 +6,35 @@ namespace HealthFirst.App.Services
 {
     public class FoodService
     {
-        const string filePath = "food.json";
-
         private readonly IDataListService<IDishRecipe> _foodListService;
 
-        public FoodService() 
+
+        #region Constructors
+
+
+        public FoodService()
         {
-            _foodListService = new FoodListService(filePath);
+            _foodListService = new FoodListService(AppSettings.AppPath);
         }
 
-        public void SaveFoodModel(FoodModel food) 
+        public FoodService(IDataListService<IDishRecipe> _dataListService)
+        {
+            _foodListService = _dataListService;
+        }
+
+
+        #endregion Constructors
+
+
+        public void SaveFoodModel(FoodModel food)
         {
             var list = new List<IDishRecipe>();
 
-            foreach (var recipe in food.Recipes) 
+            foreach (var recipe in food.Recipes)
             {
                 var dishRecipe = new DishRecipe(
-                    recipe.Title, 
-                    recipe.Description, 
+                    recipe.Title,
+                    recipe.Description,
                     recipe.CookingTime,
                     recipe.CountServings,
                     recipe.Level,

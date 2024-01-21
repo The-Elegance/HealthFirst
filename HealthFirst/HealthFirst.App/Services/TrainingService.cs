@@ -7,21 +7,32 @@ namespace HealthFirst.App.Services
 {
     public class TrainingService
     {
-        const string FilePath = "trainingCourses.json";
-      
         private readonly IDataListService<ITrainingCourse> _trainingListService;
+
+
+        #region Constructors
+
 
         public TrainingService()
         {
-            _trainingListService = new TrainingsListService(AppSettings.APP_FOLDER_NAME + "/" + FilePath);
+            _trainingListService = new TrainingsListService(AppSettings.AppPath);
         }
 
-        public void SaveTrainingModel(TrainingsModel model) 
+        public TrainingService(IDataListService<ITrainingCourse> _dataListService)
+        {
+            _trainingListService = _dataListService;
+        }
+
+
+        #endregion Constructors
+
+
+        public void SaveTrainingModel(TrainingsModel model)
         {
             var trainings = new List<ITrainingCourse>();
 
             uint i = 0;
-            foreach (var tc in model.Courses) 
+            foreach (var tc in model.Courses)
             {
                 var newTc = new TrainingCourse(i, tc.PresentaionInfo, tc.CalendarInfo, tc.TrainingWeeks);
                 trainings.Add(newTc);
@@ -31,7 +42,7 @@ namespace HealthFirst.App.Services
             _trainingListService.Write(trainings);
         }
 
-        public TrainingsModel GetTrainingModel() 
+        public TrainingsModel GetTrainingModel()
         {
             var list = _trainingListService.Read();
             return new TrainingsModel(list);
