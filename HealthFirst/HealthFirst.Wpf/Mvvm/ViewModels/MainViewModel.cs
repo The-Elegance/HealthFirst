@@ -4,12 +4,11 @@ using HealthFirst.WPF.Mvvm.Core;
 using HealthFirst.WPF.Mvvm.Core.Modal;
 using HealthFirst.WPF.Mvvm.Core.Stores;
 using HealthFirst.WPF.Mvvm.ViewModels.Layouts;
-using HealthFirst.WPF.Mvvm.ViewModels.Modal;
 using HealthFirst.WPF.Mvvm.ViewModels.Modal.TrainingCourseFactory;
 
 namespace HealthFirst.WPF.Mvvm.ViewModels
 {
-    public sealed class MainViewModel : ViewModelBase   
+    public sealed class MainViewModel : ViewModelBase
     {
         private readonly INavigationStore _navigationStore;
 
@@ -18,10 +17,10 @@ namespace HealthFirst.WPF.Mvvm.ViewModels
 
         private ModalNavigationStore _modalNavigationStore = new();
 
-        public IModalViewModel CurrentModalViewModel { get => _modalNavigationStore.CurrentViewModel; } 
+        public IModalViewModel CurrentModalViewModel { get => _modalNavigationStore.CurrentViewModel; }
         public bool IsModalOpen { get => _modalNavigationStore.CurrentViewModel != null; }
 
-        public MainViewModel(INavigationStore navigationStore) 
+        public MainViewModel(INavigationStore navigationStore)
         {
             _navigationStore = navigationStore;
 

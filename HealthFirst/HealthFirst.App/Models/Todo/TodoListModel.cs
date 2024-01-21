@@ -60,7 +60,7 @@ namespace HealthFirst.App.Models.Todo
         }
 
 
-        public void AddItem(TodoItemModel todoItemModel) 
+        public void AddItem(TodoItemModel todoItemModel)
         {
             switch (todoItemModel.Status)
             {
@@ -78,7 +78,7 @@ namespace HealthFirst.App.Models.Todo
             }
         }
 
-        public void SaveTodo() 
+        public void SaveTodo()
         {
             var s = new TodoService();
             s.SaveTodoModel(this);
@@ -91,7 +91,7 @@ namespace HealthFirst.App.Models.Todo
             Completed = new ObservableCollection<TodoItemModel>();
         }
 
-        public TodoListModel(IList<TodoItemModel> notStarted, IList<TodoItemModel> inProgress, IList<TodoItemModel> completed) 
+        public TodoListModel(IList<TodoItemModel> notStarted, IList<TodoItemModel> inProgress, IList<TodoItemModel> completed)
         {
             NotStarted = new ObservableCollection<TodoItemModel>(notStarted);
             InProgress = new ObservableCollection<TodoItemModel>(inProgress);

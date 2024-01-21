@@ -1,7 +1,6 @@
 ﻿using HealthFirst.WPF.Mvvm.Core;
 using HealthFirst.WPF.Mvvm.Core.Stores;
 using HealthFirst.WPF.Mvvm.ViewModels.Sidebar;
-using System.Collections.ObjectModel;
 
 namespace HealthFirst.WPF.Mvvm.ViewModels.Layouts
 {
@@ -24,7 +23,7 @@ namespace HealthFirst.WPF.Mvvm.ViewModels.Layouts
             InitDefaultLeftPanelTabs();
         }
 
-        private void InitDefaultLeftPanelTabs() 
+        private void InitDefaultLeftPanelTabs()
         {
             Sidebar.AddTabItem("Home", "Home", _homeViewModel);
             Sidebar.AddTabItem("Training", "Sport", _trainingViewModel);

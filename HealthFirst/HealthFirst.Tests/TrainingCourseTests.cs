@@ -27,7 +27,7 @@ namespace HealthFirst.Tests
         }
 
         [Test]
-        public void TestExerciesBuilder() 
+        public void TestExerciesBuilder()
         {
             var presInfo = new ExericePresentationInfo("HomeTraining", "...", "...", 4, 4, TimeSpan.FromSeconds(60));
             var exercisesBuilder = new ExercisesBuilder(0);
@@ -38,6 +38,6 @@ namespace HealthFirst.Tests
              .Build();
 
             Assert.AreEqual("", exericies.ToString());
-        } 
+        }
     }
 }

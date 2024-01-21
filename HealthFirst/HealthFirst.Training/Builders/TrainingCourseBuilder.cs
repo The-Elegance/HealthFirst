@@ -1,6 +1,6 @@
 ﻿using HealthFirst.Core.CalendarObject;
-using HealthFirst.Core.Training.Interfaces;
 using HealthFirst.Core.Training;
+using HealthFirst.Core.Training.Interfaces;
 
 namespace HealthFirst.Training.Builders
 {

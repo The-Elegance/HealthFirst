@@ -47,18 +47,18 @@ namespace HealthFirst.WPF.Mvvm.ViewModels.MainMenu.Todo
         }
 
         private RelayCommand _deleteCommand;
-        public ICommand DeleteCommand 
+        public ICommand DeleteCommand
         {
-            get => RelayCommand.GetCommand(ref _deleteCommand, (item) => 
+            get => RelayCommand.GetCommand(ref _deleteCommand, (item) =>
             {
                 Model.Delete(item as TodoItemModel);
             });
         }
 
         private RelayCommand _addTodoItemCommand;
-        public ICommand OpenTodoItemFactoryCommand 
+        public ICommand OpenTodoItemFactoryCommand
         {
-            get => RelayCommand.GetCommand(ref _addTodoItemCommand, () => 
+            get => RelayCommand.GetCommand(ref _addTodoItemCommand, () =>
             {
                 _modalNavigationStore.Open(new TodoItemFactoryViewModel((tes) => { Model.AddItem(tes); }));
             });
@@ -66,9 +66,9 @@ namespace HealthFirst.WPF.Mvvm.ViewModels.MainMenu.Todo
 
 
         private RelayCommand _saveTodoListModelCommand;
-        public ICommand SaveTodoListModelCommand 
+        public ICommand SaveTodoListModelCommand
         {
-            get => RelayCommand.GetCommand(ref _saveTodoListModelCommand, () => 
+            get => RelayCommand.GetCommand(ref _saveTodoListModelCommand, () =>
             {
                 Model.SaveTodo();
             });

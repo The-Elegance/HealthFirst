@@ -7,7 +7,7 @@ namespace HealthFirst.Core.Timer
         public event PausedTimerCallback Started;
         public event PausedTimerCallback Paused;
         public event Action Finished;
-        
+
         private readonly TimeSpan _duration;
 
         private TimeSpan _remainingTime;
@@ -37,7 +37,7 @@ namespace HealthFirst.Core.Timer
         /// <returns></returns>
         public async Task Start()
         {
-            await Task.Run(() => 
+            await Task.Run(() =>
             {
                 _stopwatch.Start();
                 Started?.Invoke(new TimerPausedData(_remainingTime, TimeSpan.FromTicks(_stopwatch.ElapsedTicks)));

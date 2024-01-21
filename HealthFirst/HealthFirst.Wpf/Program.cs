@@ -11,8 +11,8 @@ namespace HealthFirst.WPF
         private static IHost _host;
         private static App _app;
 
-        [STAThread] 
-        public static void Main() 
+        [STAThread]
+        public static void Main()
         {
             _host = CreateHostBuilder().Build();
 

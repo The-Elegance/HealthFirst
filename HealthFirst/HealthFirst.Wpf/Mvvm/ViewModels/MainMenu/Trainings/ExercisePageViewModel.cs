@@ -15,7 +15,7 @@ namespace HealthFirst.WPF.Mvvm.ViewModels.MainMenu.Trainings
         private RelayCommand _completeExericise;
         public ICommand CompleteExericise
         {
-            get => RelayCommand.GetCommand(ref _completeExericise, () => 
+            get => RelayCommand.GetCommand(ref _completeExericise, () =>
             {
             });
         }

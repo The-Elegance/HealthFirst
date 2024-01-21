@@ -1,5 +1,4 @@
 ﻿using HealthFirst.Core.CalendarObject;
-using HealthFirst.Core.Media;
 
 namespace HealthFirst.Core.Training.Interfaces
 {

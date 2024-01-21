@@ -22,7 +22,7 @@ namespace HealthFirst.App.Models.Food
 
         public DishRecipeModel()
         {
-            
+
         }
 
         public DishRecipeModel(IDishRecipe dishRecipe)

@@ -6,8 +6,8 @@ namespace HealthFirst.Core.Training
         string title,
         string summary,
         string description,
-        uint setsCount, 
-        uint repsCount, 
+        uint setsCount,
+        uint repsCount,
         TimeSpan restTime
         ) : IExericePresentationInfo
     {

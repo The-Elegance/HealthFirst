@@ -2,38 +2,34 @@
 {
     public class TodoItem : ITodoItem
     {
-        public string Title { get; set; }
-        public string Description { get; set; }
-        public Status Status { get; set; }
-        public Priority Priority { get; set; }
+        public string Title { get; }
+        public string Description { get; }
+        public Status Status { get; private set; }
+        public Priority Priority { get; }
         public DateTime CreatedTime { get; }
-        public DateTime? FinishedTime { get; set; }
+        public DateTime? FinishedTime { get; private set; }
+        public DateTime DeadlineTime  { get; }
 
-        private DateTime _deadline;
-        public DateTime DeadlineTime 
+        public TodoItem(string title, string description, DateTime createDate, DateTime deadlineTime, Status status = Status.NotStarted, Priority priority = Priority.Low, DateTime? finishedTime = null)
         {
-            get => _deadline; set
-            {
-                if (CreatedTime > value)
-                    throw new ArgumentException("Deadline cannot be earlier than creation date");
-                _deadline = value;
-            }
-        }
+            if (createDate > deadlineTime)
+                throw new ArgumentException("Deadline cannot be earlier than creation date");
 
-        public TodoItem(string title, string description, DateTime createDate, DateTime deadlineTime, Status status = Status.NotStarted, Priority priority = Priority.Low) 
-        {
             Title = title;
-            Description = description;  
-            CreatedTime = createDate;   
+            Description = description;
+            CreatedTime = createDate;
             DeadlineTime = deadlineTime;
             Status = status;
             Priority = priority;
+            FinishedTime = finishedTime;
         }
 
         public override string ToString()
         {
             return $"Title:{Title} Description:{Description} CreatedTime:{CreatedTime} DeadlineTime:{DeadlineTime} Status:{Status} Priority:{Priority}";
         }
+
+
 
         public void ChangeStatus(Status status, DateTime? finishedTime)
         {

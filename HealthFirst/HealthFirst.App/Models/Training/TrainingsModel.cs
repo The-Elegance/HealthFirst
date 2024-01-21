@@ -18,17 +18,17 @@ namespace HealthFirst.App.Models.Training
             Courses = new ObservableCollection<ITrainingCourse>(courses);
         }
 
-        public void AddCourse(ITrainingCourse course) 
+        public void AddCourse(ITrainingCourse course)
         {
             Courses.Add(course);
         }
 
-        public void RemoveCourse(ITrainingCourse course) 
+        public void RemoveCourse(ITrainingCourse course)
         {
             Courses.Remove(course);
         }
 
-        public void SaveCourse() 
+        public void SaveCourse()
         {
             var trainingService = new TrainingService();
             trainingService.SaveTrainingModel(this);

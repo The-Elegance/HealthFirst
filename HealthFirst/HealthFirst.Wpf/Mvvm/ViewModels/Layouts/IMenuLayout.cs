@@ -1,5 +1,4 @@
-﻿using HealthFirst.WPF.Mvvm.Core;
-using HealthFirst.WPF.Mvvm.ViewModels.Sidebar;
+﻿using HealthFirst.WPF.Mvvm.ViewModels.Sidebar;
 
 namespace HealthFirst.WPF.Mvvm.ViewModels.Layouts
 {

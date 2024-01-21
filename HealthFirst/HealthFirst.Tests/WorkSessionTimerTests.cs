@@ -6,11 +6,12 @@ namespace HealthFirst.Tests
     [TestFixture]
     internal class WorkSessionTimerTests
     {
-        [SetUp] public void SetUp() 
+        [SetUp]
+        public void SetUp()
         { }
 
         [Test]
-        public void TimerWillBeFinishedWithPausedAndResume() 
+        public void TimerWillBeFinishedWithPausedAndResume()
         {
             var i = 0;
             var timer = new WorkSessionTimer(TimeSpan.FromSeconds(5));
@@ -34,7 +35,7 @@ namespace HealthFirst.Tests
         }
 
         [Test]
-        public void TimerCanBePaused() 
+        public void TimerCanBePaused()
         {
             var timer = new WorkSessionTimer(TimeSpan.FromSeconds(3));
 
@@ -49,7 +50,7 @@ namespace HealthFirst.Tests
         }
 
         [Test]
-        public void TimerCanBeFinished() 
+        public void TimerCanBeFinished()
         {
             var timer = new WorkSessionTimer(TimeSpan.FromSeconds(3));
 

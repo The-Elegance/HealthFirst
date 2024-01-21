@@ -28,18 +28,18 @@ namespace HealthFirst.WPF.Mvvm.ViewModels.MainMenu.Trainings
 
 
         private RelayCommand _trainingCommand;
-        public ICommand AddTrainingCommand 
+        public ICommand AddTrainingCommand
         {
-            get => RelayCommand.GetCommand(ref _trainingCommand, () => 
+            get => RelayCommand.GetCommand(ref _trainingCommand, () =>
             {
                 _modelNavigationStore.OpenRegisteredModal(typeof(TrainingCourseFactoryViewModel));
             });
         }
 
         private RelayCommand _openTrainingCoursePage;
-        public ICommand OpenTrainingCoursePage 
+        public ICommand OpenTrainingCoursePage
         {
-            get => RelayCommand.GetCommand<ITrainingCourse>(ref _openTrainingCoursePage, (tc) => 
+            get => RelayCommand.GetCommand<ITrainingCourse>(ref _openTrainingCoursePage, (tc) =>
             {
                 var backNavCommand = new NavigateCommand(_changeCurrentViewModel, () => this);
                 _changeCurrentViewModel?.Invoke(new TrainingCourseViewModel(tc, backNavCommand, _changeCurrentViewModel));

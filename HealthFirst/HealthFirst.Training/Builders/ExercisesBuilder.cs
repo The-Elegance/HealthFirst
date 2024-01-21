@@ -12,7 +12,7 @@ namespace HealthFirst.Core.Training.Builders
         #region Constructors
 
 
-        public ExercisesBuilder(uint id = 0) 
+        public ExercisesBuilder(uint id = 0)
         {
             _id = id;
         }
@@ -27,7 +27,7 @@ namespace HealthFirst.Core.Training.Builders
         }
 
 
-        public ExercisesBuilder Id(uint id) 
+        public ExercisesBuilder Id(uint id)
         {
             _id = id;
             return this;
@@ -37,13 +37,13 @@ namespace HealthFirst.Core.Training.Builders
         #region PresentationInfo
 
 
-        public ExercisesBuilder AddPresentationInfo(IExericePresentationInfo exericePresentationInfo) 
+        public ExercisesBuilder AddPresentationInfo(IExericePresentationInfo exericePresentationInfo)
         {
             _presentationInfo = exericePresentationInfo;
             return this;
         }
 
-        public ExercisesBuilder AddPresentationInfo(string title, string summary, string description, uint setsCount, uint repsCount, TimeSpan restTime) 
+        public ExercisesBuilder AddPresentationInfo(string title, string summary, string description, uint setsCount, uint repsCount, TimeSpan restTime)
         {
             _presentationInfo = new ExericePresentationInfo(title, summary, description, setsCount, repsCount, restTime);
             return this;
@@ -56,22 +56,22 @@ namespace HealthFirst.Core.Training.Builders
         #region Sets
 
 
-        public ExercisesBuilder AddEmptySets(uint setsCount) 
+        public ExercisesBuilder AddEmptySets(uint setsCount)
         {
-            for (uint i = 0; i < setsCount; i++) 
+            for (uint i = 0; i < setsCount; i++)
                 _exercisesSet.Add(new SetOfExercise(i, 0));
             return this;
         }
 
-        public ExercisesBuilder AddSets(uint setsCount, IList<uint> latestCounts) 
+        public ExercisesBuilder AddSets(uint setsCount, IList<uint> latestCounts)
         {
             if (latestCounts.Count == 0)
                 return AddEmptySets(setsCount);
 
-            for (uint i = 0; i < setsCount; i++) 
+            for (uint i = 0; i < setsCount; i++)
             {
                 ISetOfExercise setOfExercise;
-                if (latestCounts.Count - 1 == i) 
+                if (latestCounts.Count - 1 == i)
                     setOfExercise = new SetOfExercise(i, 0);
                 else
                     setOfExercise = new SetOfExercise(i, latestCounts[0]);
@@ -82,7 +82,7 @@ namespace HealthFirst.Core.Training.Builders
             return this;
         }
 
-        public ExercisesBuilder AddOneSet(uint latestCount) 
+        public ExercisesBuilder AddOneSet(uint latestCount)
         {
             _exercisesSet.Add(new SetOfExercise((uint)_exercisesSet.Count, latestCount));
             return this;
